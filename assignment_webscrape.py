@@ -1,3 +1,10 @@
+# this program extracts span tags from a given URL
+# (use URLs below)
+# and sums the total number of comments on the page
+# http://py4e-data.dr-chuck.net/comments_42.html
+# http://py4e-data.dr-chuck.net/comments_1474130.html
+
+
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import ssl
@@ -9,9 +16,6 @@ ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
 # read html data
-# (urls to try:)
-# http://py4e-data.dr-chuck.net/comments_42.html
-# http://py4e-data.dr-chuck.net/comments_1474130.html
 url = input('Enter URL: ')
 html = urlopen(url, context=ctx).read()
 soup = BeautifulSoup(html, "html.parser")
